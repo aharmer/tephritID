@@ -3,7 +3,7 @@ import PIL
 from PIL import Image, ImageOps
 import numpy as np
 import time
-import keyboard
+# import keyboard
 import psutil
 import os
 import streamlit as st
@@ -132,13 +132,13 @@ with tab2:
             except Exception as ex:
                 st.write("")
 
-    exit_app = st.sidebar.button("Quit")
-    if exit_app:
-        # Give a bit of delay for user experience
-        time.sleep(2)
-        # Close streamlit browser tab
-        keyboard.press_and_release('ctrl+w')
-        # Terminate streamlit python process
-        pid = os.getpid()
-        p = psutil.Process(pid)
-        p.terminate()
+    # exit_app = st.sidebar.button("Quit")
+    # if exit_app:
+    #     # Give a bit of delay for user experience
+    #     time.sleep(2)
+    #     # Close streamlit browser tab
+    #     keyboard.press_and_release('ctrl+w')
+    #     # Terminate streamlit python process
+    #     pid = os.getpid()
+    #     p = psutil.Process(pid)
+    #     p.terminate()
