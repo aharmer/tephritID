@@ -1,6 +1,5 @@
 pillow
 numpy
-time
 keyboard
 psutil
 os
