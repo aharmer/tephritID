@@ -3,7 +3,7 @@ import PIL
 from PIL import Image, ImageOps
 import numpy as np
 import time
-# import keyboard
+import keyboard
 import psutil
 import os
 import streamlit as st
@@ -33,7 +33,7 @@ def constrast_stretch(inputImage):
     return outputImage
 
 # Replace the relative path to model file
-model_path = 'C:/Users/harmera/Dropbox/data/tephritID/GUI/model/best.pt'
+model_path = 'best.pt'
 
 try:
     model = YOLO(model_path)
@@ -52,7 +52,7 @@ st.set_page_config(
 tab1, tab2 = st.tabs(["About", "App"])
 
 with tab1:
-    st.image('C:/Users/HarmerA/Dropbox/data/tephritID/GUI/fly_icon.png')
+    st.image('fly_icon.png')
     st.header("About the project")
     st.caption("This interface and the supporting models were funded by the Ministry of Business, Innovation and Employment (MBIE) through the Strategic Science Investment Fund (SSIF) for Nationally Significant Collections and Databases, and specifically the New Zealand Arthropod Collection. The work was also aligned to the Better Border Biosecurity (B3) science collaboration through project D22.15 “Using images and deep learning for the identification of high-risk insect species”. ")
     st.caption("We acknowledge the work of postgraduate students and student interns from the University of Auckland and other volunteers that took images of various taxonomic groups (Blake Taka, Chloe Loomes, Evan Cheng, Henry Kidd, Jasmine Gunton, Jingkai Wang, Maddy Pye, Michael Fong, Mingrui Wei, Thomas Blokker, Yitong Xia, Yuzhi Gong (MSc), Yuzhou Yao, Zoe Litherland), and the Capstone students from the School of Computer Science in 2023.")
@@ -75,7 +75,7 @@ with tab2:
 
 
     # Creating main page heading 
-    st.image('C:/Users/HarmerA/Dropbox/data/tephritID/GUI/fly_icon.png')
+    st.image('fly_icon.png')
     st.title("TephritID")
     st.caption('Upload a photo of a fly wing.')
     st.caption('Then click the :blue[Identify] button and check the result.')
@@ -132,13 +132,13 @@ with tab2:
             except Exception as ex:
                 st.write("")
 
-    # exit_app = st.sidebar.button("Quit")
-    # if exit_app:
-    #     # Give a bit of delay for user experience
-    #     time.sleep(2)
-    #     # Close streamlit browser tab
-    #     keyboard.press_and_release('ctrl+w')
-    #     # Terminate streamlit python process
-    #     pid = os.getpid()
-    #     p = psutil.Process(pid)
-    #     p.terminate()
+    exit_app = st.sidebar.button("Quit")
+    if exit_app:
+        # Give a bit of delay for user experience
+        time.sleep(2)
+        # Close streamlit browser tab
+        keyboard.press_and_release('ctrl+w')
+        # Terminate streamlit python process
+        pid = os.getpid()
+        p = psutil.Process(pid)
+        p.terminate()
